@@ -8,3 +8,11 @@ test_docker
 # Prevent another lockfile than pnpm-lock.yaml (pnpm) from being created
 yarn.lock
 package-lock.json
+
+# Playwright
+test-results/
+playwright-report/
+.playwright-mcp/
+
+# Claude Code (per-user local settings)
+.claude/settings.local.json

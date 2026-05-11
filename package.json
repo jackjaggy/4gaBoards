@@ -40,7 +40,11 @@
     "start": "pnpm packages:build && concurrently -n server,client \"pnpm -C server start\" \"pnpm -C client start\"",
     "dev": "pnpm packages:build && concurrently -n server,client,packages \"pnpm -C server start\" \"pnpm -C client start\" \"pnpm -r --parallel --filter @4gaboards/* dev\"",
     "pretest": "pnpm packages:build",
-    "test": "pnpm -C server test && pnpm -C client test"
+    "test": "pnpm -C server test && pnpm -C client test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "E2E_SLOWMO=1000 playwright test --ui",
+    "test:e2e:headed": "E2E_SLOWMO=1000 playwright test --headed",
+    "test:e2e:report": "playwright show-report"
   },
   "lint-staged": {
     "client/**/*.{js,jsx}": [
@@ -61,6 +65,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.6",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^25.6.2",
     "concurrently": "^9.2.1",
     "confusing-browser-globals": "^1.0.11",
     "eslint": "^9.39.4",
@@ -75,7 +81,8 @@
     "postcss-scss": "^4.0.9",
     "prettier": "^3.8.3",
     "stylelint": "^17.11.0",
-    "stylelint-config-recommended-scss": "^17.0.1"
+    "stylelint-config-recommended-scss": "^17.0.1",
+    "typescript": "^5.9.3"
   },
   "devEngines": {
     "packageManager": {
