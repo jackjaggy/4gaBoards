@@ -330,7 +330,7 @@ const CardModal = React.memo(
           <div className={s.headerTitleWrapper}>
             <NameField defaultValue={name} onUpdate={handleNameUpdate} ref={nameEdit}>
               {/*  eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-              <div className={clsx(s.headerTitle, canEdit && gs.cursorPointer)} onClick={handleNameEdit} title={name}>
+              <div className={clsx(s.headerTitle, canEdit && gs.cursorPointer)} onClick={handleNameEdit} title={name} data-testid="card-modal-title">
                 <LinkifiedTextRenderer text={name} iconClassName={s.linkIcon} />
               </div>
             </NameField>
